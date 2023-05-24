@@ -3,21 +3,15 @@ import styled from 'styled-components';
 
 const CardContainer = styled.div`
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 16px;
   margin-bottom: 16px;
 `;
 
-const PokemonImage = styled.img`
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-`;
-
-const Card = ({ name, image, weight, abilities }) => {
+const Card = ({ name, imageUrl, weight, abilities }) => {
   return (
     <CardContainer>
-      <PokemonImage src={image} alt={name} />
+      <img src={imageUrl} alt={name} />
       <h3>{name}</h3>
       <p>Weight: {weight}</p>
       <p>Abilities: {abilities.join(', ')}</p>

@@ -1,22 +1,18 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchPokemons } from './actions/pokemonActions';
-import PokemonGallery from './components/PokemonGallery';
-import FilterInput from './components/FilterInput';
+import React from 'react';
+import PokemonList from './components/PokemonList';
+import Filter from './components/Filter';
+import Select from './components/Select';
+import PokemonProvider from './contexts/PokemonContext';
+import './index.css'
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchPokemons());
-  }, [dispatch]);
-
   return (
-    <div className="App">
-      <h1>Pokedex</h1>
-      <PokemonGallery />
-      <FilterInput />
-    </div>
+    <PokemonProvider>
+      <h1>Galeria de Pokemones</h1>
+      <Filter />
+      <Select />
+      <PokemonList />
+    </PokemonProvider>
   );
 };
 
