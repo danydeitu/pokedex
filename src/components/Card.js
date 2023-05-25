@@ -8,6 +8,7 @@ const CardContainer = styled.div`
   margin-bottom: 16px;
 `;
 
+
 const Card = ({ name, imageUrl, weight, abilities }) => {
   return (
     <CardContainer>

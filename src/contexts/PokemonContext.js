@@ -1,3 +1,4 @@
+// PokemonContext.js
 import React, { createContext, useEffect, useState } from 'react';
 import { getPokemons } from '../services/Api';
 
@@ -43,17 +44,16 @@ const PokemonProvider = ({ children }) => {
     setFilteredPokemons(filtered);
   };
 
-  const removePokemons = () => {
-    setFilteredPokemons(prevPokemons =>
-      prevPokemons.filter(pokemon => !selectedPokemons.includes(pokemon))
+  const removePokemon = (pokemon) => {
+    setSelectedPokemons(prevPokemons =>
+      prevPokemons.filter(p => p.id !== pokemon.id)
     );
-    setSelectedPokemons([]);
   };
 
-  const togglePokemonSelection = pokemon => {
+  const togglePokemonSelection = (pokemon) => {
     setSelectedPokemons(prevPokemons => {
-      if (prevPokemons.includes(pokemon)) {
-        return prevPokemons.filter(p => p !== pokemon);
+      if (prevPokemons.some(p => p.id === pokemon.id)) {
+        return prevPokemons.filter(p => p.id !== pokemon.id);
       } else {
         return [...prevPokemons, pokemon];
       }
@@ -70,7 +70,7 @@ const PokemonProvider = ({ children }) => {
         setSelectedAbilities,
         selectedPokemons,
         togglePokemonSelection,
-        removePokemons,
+        removePokemon,
       }}
     >
       {children}
