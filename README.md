@@ -14,10 +14,11 @@ Seleccionar y eliminar pokemones de la lista.
 ## Tecnologías utilizadas
 
 ### React: Biblioteca de JavaScript para construir interfaces de usuario interactivas.
-### Iniciada con create-react-app
-### Con Context para el manejo global del contexto
-### Styled Components: Biblioteca de estilos en línea para React que permite escribir estilos en el mismo archivo JavaScript.
+### Iniciada con create-react-app.
+### Con Context para el manejo global del contexto.
+### Styled Components: Biblioteca de estilos en línea para React que permite.escribir estilos en el mismo archivo JavaScript.
 ### PokeAPI: API de código abierto que proporciona información sobre los pokemones.
+### Axios para la peticion de recursos via get a la API.
 
 ## Instalacion 
 

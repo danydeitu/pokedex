@@ -59,10 +59,22 @@ const PokemonProvider = ({ children }) => {
       }
     });
   };
+  const selectPokemon = (pokemon) => {
+    setSelectedPokemons((prevSelectedPokemons) => [...prevSelectedPokemons, pokemon]);
+  };
 
-  return (
-    <PokemonContext.Provider
-      value={{
+  const removPokemon = (pokemon) => {
+    setSelectedPokemons((prevSelectedPokemons) =>
+      prevSelectedPokemons.filter((p) => p.id !== pokemon.id)
+    );
+  };
+
+
+    return (
+      <PokemonContext.Provider value={{ 
+        selectedPokemons, 
+        selectPokemon, 
+        removPokemon,
         filteredPokemons,
         searchValue,
         setSearchValue,

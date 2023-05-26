@@ -97,7 +97,7 @@ const PokemonList = () => {
           <PokemonName>{pokemon.name}</PokemonName>
           <p>Weight: {pokemon.weight}</p>
          
-          <p>Abilities: {pokemon.abilities.join()}</p>
+          <p>Abilities: {pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
 
           
           <Button onClick={() => togglePokemonSelection(pokemon)}>
