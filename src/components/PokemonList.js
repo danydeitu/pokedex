@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { PokemonContext } from '../contexts/PokemonContext';
 import styled from 'styled-components';
+;
 
 const PokemonListContainer = styled.div`
   display: flex;
@@ -16,14 +17,14 @@ const PokemonCard = styled.div`
   width: 200px;
   margin: 10px;
   padding: 10px;
-  background-color: #f5f5f5;
+  background-color:#0055;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const PokemonImage = styled.img`
   width: 120px;
-  height: 120px;
+  height: 110px;
 `;
 
 const PokemonName = styled.h3`
@@ -58,7 +59,7 @@ const PokemonList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://pokeapi.co/api/v2/pokemon');
+        const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100');
         const { results } = response.data;
 
         // Recorrer los resultados y obtener los datos de cada Pokémon
@@ -95,9 +96,13 @@ const PokemonList = () => {
           <PokemonImage src={pokemon.sprites.front_default} alt={pokemon.name} />
           <PokemonName>{pokemon.name}</PokemonName>
           <p>Weight: {pokemon.weight}</p>
-          <p>Abilities: {pokemon.abilities.join(', ')}</p>
+         
+          <p>Abilities: {pokemon.abilities.join()}</p>
+
+          
           <Button onClick={() => togglePokemonSelection(pokemon)}>
             {selectedPokemons.some(p => p.id === pokemon.id) ? 'Remove' : 'Select'}
+          
           </Button>
         </PokemonCard>
       ))}

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
 }
 
 code {
@@ -14,4 +15,5 @@ code {
 h1{
 text-align: center;
 color: rgb(26, 62, 62);
+
 }

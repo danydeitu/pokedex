@@ -19,7 +19,7 @@ const Select = () => {
 
   return (
     <SelectContainer>
-      <button onClick={handleRemoveClick}>Eliminar Pokemon seleccionado</button>
+      
       {selectedPokemons.map((pokemon) => (
         <label key={pokemon.name}>
           <input
